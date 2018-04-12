@@ -47,16 +47,19 @@ resources: {}
 #  cpu: 100m
 #  memory: 128Mi
 persistence:
-  enabled: false
+  enabled: true
+   Annotations:
+      volume.beta.kubernetes.io/storage-class: "ibmc-file-retain-gold"
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
   ## If undefined (the default) or set to null, no storageClassName spec is
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
+  ExistingCalim: artifactory-staging
   # storageClass: "-"
-  # accessMode: ReadWriteOnce
-  # size: 10Gi
+  accessMode: ReadWriteOnce
+  size: 20Gi
 
 # List of plugins to install.
 # For example:
